@@ -2,4 +2,4 @@
 
 
 sleep 30
-echo "Hello World"
+echo "Hello World" > /tmp/install_script.txt
