@@ -2,7 +2,10 @@
 
 sleep 30
 echo "Hello World" > /tmp/post_snapshot.txt
-echo "MULTIFLAGS" > /tmp/this_were_the_ML.txt
+
+multiflags=`cat /tmp/multiflags.txt`  
+echo "$multiflags" 
+
 
 #CLEANUP
-#unset MULTIFLAGS
+
