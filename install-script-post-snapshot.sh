@@ -1,9 +1,9 @@
 #! /bin/bash
 
 sleep 30
-echo "Hello World" > /tmp/post_snapshot.txt
+echo "Hello World" > /dpl_tmp/post_snapshot.txt
 
-multiflags=`cat /tmp/multiflags.txt`  
+multiflags=`cat /dpl_tmp/multiflags.txt`  
 echo "$multiflags" 
 
 
