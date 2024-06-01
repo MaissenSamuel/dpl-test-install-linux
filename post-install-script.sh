@@ -16,14 +16,14 @@ awk -F"[{}]" '{print $4}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
 
 ##Flag by name
 #EXAMPLE: flag name 1
-grep -o '{[^{}]*"flag":"flag name 1"[^{}]*}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
+grep -o '{[^{}]*"name":"flag name 1"[^{}]*}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
 
 #EXAMPLE: flag-2
-grep -o '{[^{}]*"flag":"flag name 2"[^{}]*}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
+grep -o '{[^{}]*"name":"flag name 2"[^{}]*}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
 
 
 ### CLEANUP Files
-#rm -rf /dpl_tmp
+rm -rf /dpl_tmp
 
 ### Cleanup Artifacts
 ## Clear history
