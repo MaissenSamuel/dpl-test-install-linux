@@ -23,7 +23,7 @@ grep -o '{[^{}]*"flag":"flag name 2"[^{}]*}' $multiflags | sed -n 's/.*"flag":"\
 
 
 ### CLEANUP Files
-rm -rf /dpl_tmp
+#rm -rf /dpl_tmp
 
 ### Cleanup Artifacts
 ## Clear history
