@@ -2,26 +2,32 @@
 
 echo "Starting with post installation script"
 
-### Retrieval of multiflags and credentials
-multiflags=`cat /dpl_tmp/multiflags.txt`
-credentials=`cat /dpl_tmp/credentials.txt`
+### Retrieval of multiflags and credentials path
+multiflags=/dpl_tmp/multiflags.txt
+credentials=/dpl_tmp/credentials.txt
 
 
-
-### EXAMPLE: Flag handling 
+### EXAMPLE: Flag/Credential handling 
 ##Flag by index
-# write-host $($multiflags[0].flag)
+#EXAMPLE: Index 0
+awk -F"[{}]" '{print $2}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
+#EXAMPLE: Index 1
+awk -F"[{}]" '{print $4}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
+
 ##Flag by name
-# write-host $multiflags.Where({$_.Name -like "flag name 1"}).flag
-echo "$multiflags" 
+#EXAMPLE: flag name 1
+grep -o '{[^{}]*"flag":"flag name 1"[^{}]*}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
+
+#EXAMPLE: flag-2
+grep -o '{[^{}]*"flag":"flag name 2"[^{}]*}' $multiflags | sed -n 's/.*"flag":"\([^"]*\)".*/\1/p'
 
 
 ### CLEANUP Files
-rm /dpl_tmp/multiflags.txt
-rm /dpl_tmp/credentials.txt
-## Optional: Remove installation source
-# Remove-Item -Path C:\Windows\Temp\REPOSITORY_NAME.txt
+rm -rf /dpl_tmp
 
 ### Cleanup Artifacts
 ## Clear history
 history -c
+
+
+echo "Finished post installation script"
