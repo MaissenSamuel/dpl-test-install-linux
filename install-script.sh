@@ -24,4 +24,9 @@ awk -F"[{}]" '{print $4}' $credentials | sed -n 's/.*"username":"\([^"]*\)".*/\1
 #EXAMPLE: customuser2
 grep -o '{[^{}]*"username":"customuser2"[^{}]*}' $credentials | sed -n 's/.*"password":"\([^"]*\)".*/\1/p'
 
+
+
+get-notavailable
+
+
 echo "Finished with installation script"
