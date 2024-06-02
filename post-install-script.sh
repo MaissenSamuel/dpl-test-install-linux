@@ -1,5 +1,14 @@
 #! /bin/bash
 
+# Trap any error (any command exits with non-zero status)
+trap 'catch' ERR
+
+catch() {
+  # Error handling code
+  echo "An error occurred"
+  exit 1
+}
+
 echo "Starting with post installation script"
 
 ### Retrieval of multiflags and credentials path
