@@ -36,7 +36,4 @@ grep -o '{[^{}]*"username":"customuser2"[^{}]*}' $credentials | sed -n 's/.*"pas
 
 
 
-get-notavailable
-
-
 echo "Finished with installation script"
